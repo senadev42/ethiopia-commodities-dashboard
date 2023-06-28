@@ -16,7 +16,7 @@ function App() {
   const cellCSS = "p-2 px-7 gap-x-2";
 
   return (
-    <div className="bg-gray-200 flex flex-col items-center h-screen">
+    <div className="bg-gray-200 flex flex-col items-center justify-between h-screen">
 
 
       <div className="bg-green-100 w-full p-4 flex items-center justify-between">
@@ -50,6 +50,12 @@ function App() {
             ))}
           </tbody>
         </table>
+      </div>
+
+
+      {/* Footer */}
+      <div className="bg-gray-100 w-full p-4 ">
+        <p className="text-gray-600 text-center">This is going somewhere</p>
       </div>
     </div>
   );
