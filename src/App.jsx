@@ -1,35 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [marketData, setMarketData] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:5000/")
+      .then((response) => setMarketData(response.data))
+      .catch((error) => console.log("Error:", error));
+  }, []);
+
+  const headings = ["Commodity", "Unit", "Date", "Price"];
+
+
+  const cellCSS = "p-2 px-7 gap-x-2";
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="bg-gray-200 flex flex-col items-center h-screen">
+
+
+      <div className="bg-green-100 w-full p-4 flex items-center justify-between">
+        <h1 className="text-2xl font-bold">Commodities: Ethiopia</h1>
+
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+
+      {/* The Table Section */}
+      <div className="bg-red-100 p-4">
+        <div className="flex flex-row justify-between">
+          <h1 className=" text-2xl font-bold mb-4">Market Prices</h1>
+          <h2 className="text-lg font-bold mb-4">Date: {new Date().toDateString()} </h2>
+        </div>
+
+        <table className="text-left">
+          <thead className="bg-green-100 p-3">
+            <tr>
+              {headings.map(((heading, index) => (
+                <th className={cellCSS} key={index}> {heading}</th>
+              )))}
+
+            </tr>
+          </thead>
+          <tbody className="bg-yellow-100" id="market-table">
+            {marketData.map((rowData, index) => (
+              <tr key={index}>
+                {Object.values(rowData).map((cellData, index) => (
+                  <td className={cellCSS} key={index}>{cellData}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
