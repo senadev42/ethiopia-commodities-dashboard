@@ -1,0 +1,20 @@
+[
+    {
+        "commodity": "Apple",
+        "unit": "Kg",
+        "date": "2023-06-26",
+        "price": "2.50"
+    },
+    {
+        "commodity": "Banana",
+        "unit": "Bunch",
+        "date": "2023-06-26",
+        "price": "1.50"
+    },
+    {
+        "commodity": "Orange",
+        "unit": "Kg",
+        "date": "2023-06-26",
+        "price": "3.00"
+    }
+]
