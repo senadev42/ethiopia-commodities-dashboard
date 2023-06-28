@@ -4,6 +4,13 @@ import axios from "axios";
 function App() {
   const [marketData, setMarketData] = useState([]);
 
+  const [tradeState, setTradeState] = useState("buying");
+  const [quantity, setQuantity] = useState(1);
+  const [selectedCommodity, setSelectedCommodity] = useState({
+    name: "TEST",
+    price: "50",
+  });
+
   useEffect(() => {
     axios.get("http://localhost:5000/")
       .then((response) => setMarketData(response.data))
