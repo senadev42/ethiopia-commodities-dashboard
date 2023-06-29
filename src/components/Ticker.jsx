@@ -1,12 +1,17 @@
 import { useState, useEffect } from "react";
 
-import { useMarketData } from "../App";
-
 function Ticker() {
   const [tickerContent, setTickerContent] = useState([]);
   const [tickerIndex, setTickerIndex] = useState(0);
 
-  const marketData = useMarketData();
+  const [marketData, setMarketData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/")
+      .then((response) => setMarketData(response.data))
+      .catch((error) => console.log("Error:", error));
+  }, []);
 
   useEffect(() => {
     const sanitizedData = marketData.map((data) => ({
