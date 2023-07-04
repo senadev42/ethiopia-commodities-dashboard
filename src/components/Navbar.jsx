@@ -59,15 +59,17 @@ function Navbar() {
         {/* <Ticker /> */}
         {/* Div showing others pages like portfolio, Home */}
         <div className="ml-8 flex flex-row gap-x-8">
-          <h2 className="borderover:text-teal-400">Home</h2>
-          <h2 className="">Portfolio</h2>
-          <h2 className="">Watchlist</h2>
+          <h2 className=" hover:text-teal-400">Home</h2>
+          <h2 className="hover:text-teal-400">Portfolio</h2>
+          <h2 className="hover:text-teal-400">Watchlist</h2>
+          <h2 className="text-teal-400">Trade</h2>
+          <h2 className="hover:text-teal-400">Historical</h2>
         </div>
         {/* Search  */}
         <div className="ml-8">
           <input
             type="text"
-            className="bg-white text-gray-800 border border-gray-200 rounded-md py-2 px-4 leading-tight focus:outline-none focus:shadow-outline"
+            className="bg-white  text-gray-800 border border-gray-200 rounded-md py-2 px-4 leading-tight focus:outline-none focus:shadow-outline"
             placeholder="Search a Date"
           />
         </div>
