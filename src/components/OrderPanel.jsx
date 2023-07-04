@@ -32,9 +32,9 @@ function OrderPanel(props) {
   const orderHistoryCSS = "text-sm py-2 text-center";
 
   return (
-    <div className="bg-white p-8 mr-4">
+    <div className="bg-white p-8 mr-4 flex flex-col items-center">
       {/* Buying and selling */}
-      <div className="border-slate-600 bg-yellow-200 border-2 px-8 flex flex-col items-center">
+      <div className="w-[25rem] border-slate-600 bg-white-200 border-2 px-8 flex flex-col items-center">
         {/* Buy or sell buttons */}
         <div className="flex flex-row justify-center gap-x-2 my-4">
           <h3
@@ -97,13 +97,13 @@ function OrderPanel(props) {
 
       {/* Order History */}
 
-      <div className="mt-4 border-slate-600 bg-yellow-200 border-2 px-4 text-center">
+      <div className="w-[25rem] mt-4 border-slate-600 bg-white-200 border-2 px-4 text-center">
         <h3>Order History</h3>
       </div>
 
       <div className="w-[25rem]">
         {transactionHistory.length > 0 ? (
-          <div className="mt-4 h-52 bg-yellow-200 flex flex-col items-center border-black border-2 text-center overflow-y-auto">
+          <div className="mt-4 h-52 bg-white-200 flex flex-col items-center border-black border-2 text-center overflow-y-auto">
             <table className=" w-full">
               <thead className=" w-full">
                 <tr>
@@ -130,7 +130,7 @@ function OrderPanel(props) {
             {/* Total Money so far */}
           </div>
         ) : (
-          <div className="mt-4 h-52 bg-yellow-200 flex flex-col items-center justify-center border-black border-2">
+          <div className="mt-4 h-52 bg-white-200 flex flex-col items-center justify-center border-black border-2">
             <p>Nothing Yet</p>
           </div>
         )}
@@ -144,10 +144,10 @@ function OrderPanel(props) {
           }}
           className="bg-slate-100 p-2"
         >
-          Clear Table
+          debug:clear table
         </button>
 
-        {transactionHistory.length > 0 && (
+        {transactionHistory.length > 10000 && (
           <p className="text-end">
             Total: ${/* if it's a buy add, if it's a sell subtract */}
             {transactionHistory
