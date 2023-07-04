@@ -34,6 +34,14 @@ function App() {
       .catch((error) => console.log("Error:", error));
   }, []);
 
+  //local useeffect
+  // useEffect(() => {
+  //   axios
+  //     .get("data.json")
+  //     .then((response) => setMarketData(response.data))
+  //     .catch((error) => console.log("Error:", error));
+  // }, []);
+
   useEffect(() => {
     setSelectedCommodity({
       name: marketData[0]?.col1,
@@ -64,6 +72,7 @@ function App() {
 
         {/* The Table Section */}
         <div className="bg-white p-4">
+          {/*The top  */}
           <div className="flex flex-row justify-between">
             <h1 className=" text-xl mb-4">Market Prices</h1>
             {/* Drop down that allows you to set commodity filter by goods, metals, indexes and all  */}
@@ -96,12 +105,12 @@ function App() {
               </tr>
             </thead>
             {/* The Body Section  */}
-            <tbody className="bg-yellow-200" id="market-table">
+            <tbody className="bg-white-200" id="market-table">
               {marketData &&
                 marketData.map((rowData, index) => (
                   <tr
                     key={index}
-                    className="hover:bg-yellow-300"
+                    className="hover:bg-teal-300"
                     onClick={() => {
                       //console.log(rowData);
                       setSelectedCommodity({
@@ -112,7 +121,9 @@ function App() {
                   >
                     {Object.values(rowData).map((cellData, index) => (
                       <td className={cellCSS} key={index}>
+                        {/* check if cellData is a number and if so, round it to 2 decimal places. Else just show it as it is.   */}
                         {cellData}
+                        {index == 3 && console.log(index + cellData)}
                       </td>
                     ))}
                   </tr>
