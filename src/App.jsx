@@ -26,20 +26,7 @@ function App() {
     setCommodityFilter(event.target.value);
   };
 
-  // Define your table data
-  const tableData = [
-    { name: "Gold", price: 1800, type: "metals" },
-    { name: "Oil", price: 70, type: "goods" },
-    { name: "Dow Jones", price: 35000, type: "indexes" },
-    { name: "Corn", price: 5, type: "goods" },
-  ];
-
-  // Filter the table data based on the selected commodity
-  const filteredTableData =
-    commodityFilter === "all"
-      ? tableData
-      : tableData.filter((item) => item.type === commodityFilter);
-
+  // Remote use effect
   useEffect(() => {
     axios
       .get("http://localhost:5000/")
